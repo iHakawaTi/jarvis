@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS Interface</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Theme -->
+    <link href="css/theme.css" rel="stylesheet">
+</head>
+<body class="jarvis-grid">
+    <div class="container-fluid vh-100 d-flex flex-column">
+        
+        <!-- Header -->
+        <header class="jarvis-header border-bottom">
+            <div class="d-flex align-items-center justify-content-between p-3">
+                <div class="d-flex align-items-center">
+                    <div class="jarvis-logo-small me-3 jarvis-pulse">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <div>
+                        <h4 class="jarvis-title mb-0">JARVIS INTERFACE</h4>
+                        <small class="text-muted">system Active</small>
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center">
+                    <div class="text-end me-3">
+                        <div class="fw-medium" id="currentUser">Loading...</div>
+                        <small class="text-primary">Authenticated</small>
+                    </div>
+                    <div class="user-avatar me-3" id="userAvatar">
+                        <img id="avatarImg" class="rounded-circle jarvis-glow" width="40" height="40" alt="User avatar" style="display: none;">
+                        <div id="avatarInitials" class="avatar-initials"></div>
+                    </div>
+                    <button 
+                        class="btn btn-outline-danger btn-sm" 
+                        id="logoutBtn"
+                        data-testid="button-logout">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Messages Area -->
+        <div class="flex-grow-1 overflow-hidden">
+            <div class="h-100 overflow-auto jarvis-scrollbar p-3" id="messagesContainer">
+                <div class="messages-wrapper" id="messagesWrapper">
+                    <!-- Messages will be inserted here -->
+                </div>
+                
+                <!-- Typing Indicator -->
+                <div class="typing-indicator d-none" id="typingIndicator">
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="avatar-small jarvis-glow me-3">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <div class="message-bubble jarvis-message">
+                            <div class="d-flex align-items-center">
+                                <div class="typing-dots me-2">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <small class="text-muted">JARVIS is thinking...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <footer class="jarvis-footer border-top">
+            <div class="p-3">
+                <form id="messageForm" class="d-flex gap-3">
+                    <input 
+                        type="text" 
+                        class="form-control jarvis-input" 
+                        id="messageInput" 
+                        placeholder="Speak to JARVIS..."
+                        data-testid="input-message">
+                    <button 
+                        type="submit" 
+                        class="btn btn-primary jarvis-btn-glow" 
+                        id="sendBtn"
+                        data-testid="button-send">
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+                </form>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/common.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
